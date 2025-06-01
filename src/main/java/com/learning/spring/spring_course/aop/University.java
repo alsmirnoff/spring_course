@@ -1,0 +1,27 @@
+package com.learning.spring.spring_course.aop;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class University {
+    private List<Student> students = new ArrayList<>();
+
+    public void addStudents(){
+        Student st1 = new Student("User First", 4, 7.5);
+        Student st2 = new Student("User Second", 2, 8.3);
+        Student st3 = new Student("User Third", 1, 9.1);
+        students.add(st1);
+        students.add(st2);
+        students.add(st3);
+    }
+
+    public List<Student> getStudents(){
+        System.out.println("Information from method getStudents:");
+        System.out.println(students);
+        return students;
+    }
+
+}
