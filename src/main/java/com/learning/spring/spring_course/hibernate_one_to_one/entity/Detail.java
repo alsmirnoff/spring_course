@@ -1,4 +1,4 @@
-package com.learning.spring.spring_course.hibernate_test_2.entity;
+package com.learning.spring.spring_course.hibernate_one_to_one.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

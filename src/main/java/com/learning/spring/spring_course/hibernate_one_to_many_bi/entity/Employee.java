@@ -1,4 +1,4 @@
-package com.learning.spring.spring_course.hibernate_test_2.entity;
+package com.learning.spring.spring_course.hibernate_one_to_many_bi.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -25,30 +26,20 @@ public class Employee {
     @Column(name = "surname")
     private String surname;
 
-    @Column(name = "department")
-    private String department;
-
     @Column(name = "salary")
     private int salary;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "details_id")
-    private Detail empDetail;
-    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "department_id")
+    private Department department;
+
     public Employee() {
     }
 
-    public Employee(String name, String surname, String department, int salary) {
-        this.firstName = name;
+    public Employee(String firstName, String surname, int salary) {
+        this.firstName = firstName;
         this.surname = surname;
-        this.department = department;
         this.salary = salary;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee [id=" + id + ", name=" + firstName + ", surname=" + surname + ", department=" + department
-                + ", salary=" + salary + "]";
     }
 
     public int getId() {
@@ -59,12 +50,12 @@ public class Employee {
         this.id = id;
     }
 
-    public String getName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setName(String name) {
-        this.firstName = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getSurname() {
@@ -75,14 +66,6 @@ public class Employee {
         this.surname = surname;
     }
 
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
     public int getSalary() {
         return salary;
     }
@@ -91,12 +74,17 @@ public class Employee {
         this.salary = salary;
     }
 
-    public Detail getEmpDetail() {
-        return empDetail;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setEmpDetail(Detail empDetail) {
-        this.empDetail = empDetail;
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", firstName=" + firstName + ", surname=" + surname + ", salary=" + salary + "]";
     }
 
 }

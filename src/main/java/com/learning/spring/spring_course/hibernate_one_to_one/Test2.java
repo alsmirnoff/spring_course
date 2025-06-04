@@ -1,11 +1,11 @@
-package com.learning.spring.spring_course.hibernate_test_2 ;
+package com.learning.spring.spring_course.hibernate_one_to_one ;
 
 import org.hibernate.cfg.Configuration;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.learning.spring.spring_course.hibernate_test_2.entity.Detail;
-import com.learning.spring.spring_course.hibernate_test_2.entity.Employee;
+import com.learning.spring.spring_course.hibernate_one_to_one.entity.Detail;
+import com.learning.spring.spring_course.hibernate_one_to_one.entity.Employee;
 
 public class Test2 {
     public static void main(String[] args) {
