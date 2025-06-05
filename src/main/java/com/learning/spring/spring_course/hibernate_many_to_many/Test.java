@@ -16,10 +16,10 @@ public class Test {
                                     .buildSessionFactory();
 
         try(Session session = factory.openSession()){
-            // Section section1 = new Section("Football");
-            // Child child1 = new Child("User", 5);
-            // Child child2 = new Child("Test", 7);
-            // Child child3 = new Child("Spring", 6);
+            // Section section1 = new Section("Dance");
+            // Child child1 = new Child("Olga", 12);
+            // Child child2 = new Child("Grigory", 8);
+            // Child child3 = new Child("Paul", 8);
             // section1.addChildToSection(child1);
             // section1.addChildToSection(child2);
             // section1.addChildToSection(child3);
@@ -55,13 +55,28 @@ public class Test {
 
             //***********************************************************
 
+            // session.beginTransaction();
+            // Child child = session.find(Child.class, 4);
+            // System.out.println(child);
+            // System.out.println(child.getSections());
+            // session.getTransaction().commit();
+            // System.out.println("Done!");
+
+            //***********************************************************
+
+            // session.beginTransaction();
+            // Section section = session.find(Section.class, 6);
+            // session.remove(section);
+            // session.getTransaction().commit();
+            // System.out.println("Done!");
+
+            //***********************************************************
+
             session.beginTransaction();
-            Child child = session.find(Child.class, 4);
-            System.out.println(child);
-            System.out.println(child.getSections());
+            Child child = session.find(Child.class, 5);
+            session.remove(child);
             session.getTransaction().commit();
             System.out.println("Done!");
-
         }
 
         factory.close();
